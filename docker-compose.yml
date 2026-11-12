@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: oficina_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: oficina_os_db
+      POSTGRES_USER: admin_oficina
+      POSTGRES_PASSWORD: oficina_password_123
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
